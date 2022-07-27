@@ -154,6 +154,12 @@ class PlayState extends MusicBeatState
 	public static var timeCurrently:Float = 0;
 	public static var timeCurrentlyR:Float = 0;
 
+	
+	#if mobileC
+	var mcontrols:Mobilecontrols; 
+	#end
+
+
 	override public function create()
 	{
 
@@ -1000,6 +1006,31 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+		
+		#if mobileC
+			mcontrols = new Mobilecontrols();
+			switch (mcontrols.mode)
+			{
+				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
+				case HITBOX:
+					controls.setHitBox(mcontrols._hitbox);
+				default:
+			}
+			trackedinputs = controls.trackedinputs;
+			controls.trackedinputs = [];
+
+			var camcontrol = new FlxCamera();
+			FlxG.cameras.add(camcontrol);
+			camcontrol.bgColor.alpha = 0;
+			mcontrols.cameras = [camcontrol];
+
+			mcontrols.visible = false;
+
+			add(mcontrols);
+		#end
+
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1218,6 +1249,11 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+
+		
+		#if mobileC
+		mcontrols.visible = true;
+		#end
 		inCutscene = false;
 
 		generateStaticArrows(0);
@@ -2065,6 +2101,11 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+
+		#if mobileC
+		mcontrols.visible = false;
+		#end
+		
 		try{
 			if (!loadRep && rep!= null) rep.SaveReplay();
 		}
