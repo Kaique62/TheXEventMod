@@ -54,7 +54,7 @@ class RPGMainMenuState extends RPGState
         controls.setKeyboardScheme(KeyboardScheme.Solo, true);
       else
         controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
-        _vpad = new FlxVirtualPad(FULL, NONE);
+        _vpad = new FlxVirtualPad(FULL, A);
         _vpad.alpha = 0.75;
         this.add(_vpad);
   }
