@@ -40,6 +40,7 @@ class MusicBeatState extends FlxUIState
 		controls.addAndroidBack();
 		#end
 	}
+	#end
 
 	override function create()
 	{
