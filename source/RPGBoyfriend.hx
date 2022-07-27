@@ -41,9 +41,9 @@ class RPGBoyfriend extends FlxSprite
       FlxG.watch.addQuick("X Speed",velocity.x);
       //Input polling
       up = FlxG.keys.anyPressed([UP, W]) || RPGMainMenuState._vpad.buttonUp.pressed;
-      down = FlxG.keys.anyPressed([DOWN, S]);
-      left = FlxG.keys.anyPressed([LEFT, A]);
-      right = FlxG.keys.anyPressed([RIGHT, D]);
+      down = FlxG.keys.anyPressed([DOWN, S]) RPGMainMenuState._vpad.buttonDown.pressed;
+      left = FlxG.keys.anyPressed([LEFT, A])RPGMainMenuState._vpad.buttonLeft.pressed;
+      right = FlxG.keys.anyPressed([RIGHT, D])RPGMainMenuState._vpad.buttonRight.pressed;
       space = FlxG.keys.anyJustPressed([SPACE]);
 
       //State machine
