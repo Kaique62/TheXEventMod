@@ -42,7 +42,7 @@ class MusicBeatSubstate extends FlxSubState
 		controls.addAndroidBack();
 		#end
 	}
-
+#end
 
 	override function update(elapsed:Float)
 	{
