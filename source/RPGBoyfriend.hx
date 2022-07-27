@@ -44,7 +44,7 @@ class RPGBoyfriend extends FlxSprite
       down = FlxG.keys.anyPressed([DOWN, S]) || RPGMainMenuState._vpad.buttonDown.pressed;
       left = FlxG.keys.anyPressed([LEFT, A]) || RPGMainMenuState._vpad.buttonLeft.pressed;
       right = FlxG.keys.anyPressed([RIGHT, D]) ||RPGMainMenuState._vpad.buttonRight.pressed;
-      space = FlxG.keys.anyJustPressed([SPACE]) RPGMainMenuState._vpad.buttonA.anyJustPressed;
+      space = FlxG.keys.anyJustPressed([SPACE]) || RPGMainMenuState._vpad.buttonA.anyJustPressed;
 
       //State machine
       switch (currentState){
