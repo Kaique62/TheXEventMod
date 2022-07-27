@@ -39,7 +39,9 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
-
+#if mobileC
+import ui.Mobilecontrols;
+#end
 using StringTools;
 
 class PlayState extends MusicBeatState
