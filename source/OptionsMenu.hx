@@ -30,7 +30,7 @@ class OptionsMenu extends MusicBeatState
 																								+ (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\n"
 																								+ "Accuracy " + (!FlxG.save.data.accuracyDisplay ? "off" : "on") + "\n"
 																								+ "Load replays" + "\n"
-																								+ "Audio Offset Calibration");
+																								+ "Audio Offset Calibration" + "Mobile Controls");
 
 		trace(controlsStrings);
 
@@ -128,6 +128,8 @@ class OptionsMenu extends MusicBeatState
 						FlxG.switchState(new LoadReplayState());
 					case 5:
 						FlxG.switchState(new LatencyState());
+					case 6:
+					FlxG.switchState(new ui.CustomControlsState());
 				}
 			}
 		FlxG.save.flush();
