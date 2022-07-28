@@ -77,8 +77,22 @@ class DialogBox extends FlxSpriteGroup
 
     override function update(elapsed:Float)
   	{
+  	  	#if mobile
+
+		var justTouched:Bool = false;
+
+
+		for (touch in FlxG.touches.list)
+		{
+			justTouched = false;
+			
+			if (touch.justReleased){
+				justTouched = true;
+			}
+		}
+		#end
         super.update(elapsed);
-        if (FlxG.keys.anyJustPressed([SPACE])) SkipDialog();
+        if (FlxG.keys.anyJustPressed([SPACE]) #if mobile || justTouched #end ) SkipDialog();
     }
 
     public function SetTextColor(col:FlxColor){
