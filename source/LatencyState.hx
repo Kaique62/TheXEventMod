@@ -159,7 +159,7 @@ addVirtualPad(FULL, A_B);
 						UpdateOffsetAndTransition(delta);
 				}
 
-				if (FlxG.keys.justPressed.){
+				if (FlxG.keys.justPressed.BACKSPACE){
 						trace("=================================");
 						trace("Current Time:" +Conductor.songPosition);
 						trace("Last Note" +lastTime);
