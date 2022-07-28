@@ -193,7 +193,7 @@ addVirtualPad(FULL, A_B);
 
 				}
 
-				if (FlxG.keys.justPressed.BACK){
+				if (FlxG.keys.justPressed.BACKSPACE){
 						currState = "manual";
 						remove(calibrateGroup);
 						remove(beatsGroup);
