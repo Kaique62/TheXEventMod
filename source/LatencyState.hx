@@ -224,7 +224,7 @@ addVirtualPad(FULL, A_B);
 			//Do nothing, just tweening
 		}
 		else if (currState == "manual"){
-				if (FlxG.keys.justPressed.LEFT || confrols.LEFT_P){
+				if (FlxG.keys.justPressed.LEFT || controls.LEFT_P){
 						delta -= 1;
 				}
 				if (FlxG.keys.justPressed.RIGHT || controls.RIGHT_P){
@@ -238,7 +238,7 @@ addVirtualPad(FULL, A_B);
 				}
 
 				manualGroup.members[0].text = "New Note Offset:\n" + delta  + " ms";
-				if (FlxG.keys.justPressed.ENTER || control.ACCEPT){
+				if (FlxG.keys.justPressed.ENTER || controls.ACCEPT){
 						var tempText = new FlxText(0, 0, 700, "New Note Offset:\n" + Math.floor(delta) + " ms", 60);
 						tempText.bold = true;
 						tempText.screenCenter();
