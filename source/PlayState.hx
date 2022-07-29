@@ -158,7 +158,7 @@ class PlayState extends MusicBeatState
 
 	
 	#if mobileC
-	var mcontrols:Mobilecontrols; 
+	//var mcontrols:Mobilecontrols; 
 	#end
 
 
@@ -1254,7 +1254,7 @@ class PlayState extends MusicBeatState
 
 		
 		#if mobileC
-		mcontrols.visible = true;
+		//mcontrols.visible = true;
 		#end
 		inCutscene = false;
 
@@ -2105,7 +2105,7 @@ class PlayState extends MusicBeatState
 	{
 
 		#if mobileC
-		mcontrols.visible = false;
+		//mcontrols.visible = false;
 		#end
 		
 		try{
