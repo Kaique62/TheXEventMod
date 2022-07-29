@@ -75,7 +75,7 @@ class DialogTrigger extends InteractableObject
         }
         isColliding = true;
         //trace("Colliding with a text object!");
-        if (FlxG.keys.anyJustPressed([SPACE]) || RPGMainMenuState._vpad.buttonA.justPressed){
+        if (FlxG.keys.anyJustPressed([SPACE]) || RPGMainMenuState._vpad.buttonA.justPressed || RPGState._vpad.buttonA.justPressed){
             OnActivate();
             isActive = true;
         }
