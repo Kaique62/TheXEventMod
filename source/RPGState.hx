@@ -22,13 +22,13 @@ import flixel.addons.tile.FlxTilemapExt;
 import openfl.Assets;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
-
+import ui.FlxVirtualPad;
 
 using StringTools;
 
 class RPGState extends MusicBeatState
 {
-
+   public static var _vpad:FlxVirtualPad;
   var player:RPGBoyfriend;
   var levelCollision:FlxGroup = new FlxGroup();
   var interactableCollisions:FlxSpriteGroup = new FlxSpriteGroup();
@@ -65,6 +65,9 @@ class RPGState extends MusicBeatState
       switch (levelState){
           case ("relighted"): RelightenedLevelInit();
       }
+      _vpad = new FlxVirtualPad(FULL, A);
+      _vpad.alpha = 0.75;
+      this.add(_vpad);
   }
 
   public function InitRPGState(targetState:String = "relighted"){
