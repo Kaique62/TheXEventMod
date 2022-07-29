@@ -46,7 +46,7 @@ class LatencyState extends MusicBeatState
 				add(menuBG);
 				FlxTween.tween(menuBG, {alpha: 1}, 1, {ease: FlxEase.circOut});
 
-				var tempText = new FlxText(0, 0, 700, "Press SPACEBAR \nWith the Beat", 60);
+				var tempText = new FlxText(0, 0, 700, "Press BAR \nWith the Beat", 60);
 				tempText.bold = true;
 				tempText.screenCenter();
 				tempText.alignment = "center";
@@ -55,7 +55,7 @@ class LatencyState extends MusicBeatState
 				tempText.borderStyle = FlxTextBorderStyle.OUTLINE;
 				calibrateGroup.add(tempText);
 
-				tempText = new FlxText(0, 0, 1000, "Press BACKSPACE to input a value instead.", 20);
+				tempText = new FlxText(0, 0, 1000, "Press BACK to input a value instead.", 20);
 				tempText.bold = true;
 				tempText.screenCenter();
 				tempText.y += 280;
@@ -103,6 +103,9 @@ class LatencyState extends MusicBeatState
 		strumLine = new FlxSprite(FlxG.width / 2, 100).makeGraphic(FlxG.width, 5);
 		//add(strumLine);
 		Conductor.changeBPM(120);
+		#if mobileC
+addVirtualPad(FULL, A_B);
+#end
 		super.create();
 	}
 
@@ -156,7 +159,7 @@ class LatencyState extends MusicBeatState
 						UpdateOffsetAndTransition(delta);
 				}
 
-				if (FlxG.keys.justPressed.SPACE){
+				if (FlxG.keys.justPressed.BACKSPACE){
 						trace("=================================");
 						trace("Current Time:" +Conductor.songPosition);
 						trace("Last Note" +lastTime);
@@ -221,21 +224,21 @@ class LatencyState extends MusicBeatState
 			//Do nothing, just tweening
 		}
 		else if (currState == "manual"){
-				if (FlxG.keys.justPressed.LEFT){
+				if (FlxG.keys.justPressed.LEFT || controls.LEFT_P){
 						delta -= 1;
 				}
-				if (FlxG.keys.justPressed.RIGHT){
+				if (FlxG.keys.justPressed.RIGHT || controls.RIGHT_P){
 						delta += 1;
 				}
-				if (FlxG.keys.pressed.UP){
+				if (FlxG.keys.pressed.UP || controls.UP_P){
 						delta += 1;
 				}
-				if (FlxG.keys.pressed.DOWN){
+				if (FlxG.keys.pressed.DOWN || controls.DOWN_P){
 						delta -= 1;
 				}
 
 				manualGroup.members[0].text = "New Note Offset:\n" + delta  + " ms";
-				if (FlxG.keys.justPressed.ENTER){
+				if (FlxG.keys.justPressed.ENTER || controls.ACCEPT){
 						var tempText = new FlxText(0, 0, 700, "New Note Offset:\n" + Math.floor(delta) + " ms", 60);
 						tempText.bold = true;
 						tempText.screenCenter();

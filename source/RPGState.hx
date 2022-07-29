@@ -23,7 +23,6 @@ import openfl.Assets;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 
-
 using StringTools;
 
 class RPGState extends MusicBeatState
