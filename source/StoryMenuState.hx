@@ -78,8 +78,7 @@ class StoryMenuState extends MusicBeatState
 	override function create()
 	{
 
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
+	
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
