@@ -12,6 +12,7 @@ using StringTools;
 
 class RPGBoyfriend extends FlxSprite
 {
+	private var controls(get, never):Controls;
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
