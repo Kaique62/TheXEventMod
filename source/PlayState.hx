@@ -158,7 +158,7 @@ class PlayState extends MusicBeatState
 
 	
 	#if mobileC
-	//var mcontrols:Mobilecontrols; 
+	var mcontrols:Mobilecontrols; 
 	#end
 
 
@@ -1009,7 +1009,7 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 
 		
-/*		#if mobileC
+	#if mobileC
 			mcontrols = new Mobilecontrols();
 			switch (mcontrols.mode)
 			{
@@ -1030,7 +1030,7 @@ class PlayState extends MusicBeatState
 			mcontrols.visible = false;
 
 			add(mcontrols);
-		#end */
+		#end 
 
 
 		// if (SONG.song == 'South')
@@ -1254,7 +1254,7 @@ class PlayState extends MusicBeatState
 
 		
 		#if mobileC
-		//mcontrols.visible = true;
+		mcontrols.visible = true;
 		#end
 		inCutscene = false;
 
@@ -2105,7 +2105,7 @@ class PlayState extends MusicBeatState
 	{
 
 		#if mobileC
-		//mcontrols.visible = false;
+		mcontrols.visible = false;
 		#end
 		
 		try{

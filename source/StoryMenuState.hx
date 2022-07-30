@@ -229,6 +229,12 @@ class StoryMenuState extends MusicBeatState
 		updateText();
 
 		trace("Line 165");
+
+		
+		#if mobileC
+		addVirtualPad(FULL, A_B);
+		#end
+		
 		//Loads BG
 		add(new FlxSprite().loadGraphic(Paths.image('seldif', 'shared')));
 
