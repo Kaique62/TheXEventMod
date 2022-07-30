@@ -6,12 +6,14 @@ import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
+import flixel.input.actions.FlxActionInput;
 
 using StringTools;
 
 class RPGBoyfriend extends FlxSprite
 {
-
+	inline function get_controls():Controls
+		return PlayerSettings.player1.controls;
 
     public function new(x:Float = 0, y:Float = 0)
     {
@@ -40,12 +42,11 @@ class RPGBoyfriend extends FlxSprite
       FlxG.watch.addQuick("Deltatime",lastElapsed);
       FlxG.watch.addQuick("X Speed",velocity.x);
       //Input polling
-      up = FlxG.keys.anyPressed([UP, W]) || RPGMainMenuState._vpad.buttonUp.pressed
-      /*|| RPGState._vpad.buttonUp.pressed */;
-      down = FlxG.keys.anyPressed([DOWN, S]) || RPGMainMenuState._vpad.buttonDown.pressed/* || RPGState._vpad.buttonDown.pressed*/;
-      left = FlxG.keys.anyPressed([LEFT, A]) || RPGMainMenuState._vpad.buttonLeft.pressed /*|| RPGState._vpad.buttonLeft.pressed*/;
-      right = FlxG.keys.anyPressed([RIGHT, D]) ||RPGMainMenuState._vpad.buttonRight.pressed/* ||RPGState._vpad.buttonRight.pressed*/;
-      space = FlxG.keys.anyJustPressed([SPACE]) || RPGMainMenuState._vpad.buttonA.justPressed/* || RPGState._vpad.buttonA.justPressed*/;
+      up = FlxG.keys.anyPressed([UP, W]) || controls.UP;
+      down = FlxG.keys.anyPressed([DOWN, S]) || controls.DOWN;
+      left = FlxG.keys.anyPressed([LEFT, A]) || controls.LEFT;
+      right = FlxG.keys.anyPressed([RIGHT, D]) || controls.RIGHT;
+      space = FlxG.keys.anyJustPressed([SPACE]) || controls.ACCEPT;
 
       //State machine
       switch (currentState){
