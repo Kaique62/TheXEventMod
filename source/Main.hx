@@ -82,9 +82,12 @@ class Main extends Sprite
 		addChild(new FPS(10, 3, 0xFFFFFF));
 		#end
 
-		public function getFPS():Float
-			{
-				return fpsCounter.currentFPS;
-			}
+	
 	}
+	var fpsCounter:FPS;
+	
+	public function getFPS():Float
+		{
+			return fpsCounter.currentFPS;
+		}
 }

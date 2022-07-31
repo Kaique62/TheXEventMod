@@ -14,11 +14,13 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import flixel.tweens.FlxEase;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
 class StoryMenuState extends MusicBeatState
 {
+	public static var _vpad:FlxVirtualPad;
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [/*
@@ -231,6 +233,10 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 165");
 
 		
+        _vpad = new FlxVirtualPad(FULL, A);
+        _vpad.alpha = 0.75;
+        this.add(_vpad);
+		
 		//Loads BG
 		add(new FlxSprite().loadGraphic(Paths.image('seldif', 'shared')));
 
@@ -304,9 +310,7 @@ class StoryMenuState extends MusicBeatState
 		nyxDiff.members[1].alpha = 1;
 		nyxDiff.members[2].alpha = 0;
 
-    #if mobileC
-    addVirtualPad(LEFT_RIGHT, A_B);
-    #end
+   
 		super.create();
 		changeDifficulty();
 	}
