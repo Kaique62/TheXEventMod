@@ -43,6 +43,7 @@ import openfl.filters.ShaderFilter;
 import ui.Mobilecontrols;
 #end
 using StringTools;
+import openfl.Lib;
 
 class PlayState extends MusicBeatState
 {
@@ -946,7 +947,7 @@ class PlayState extends MusicBeatState
 
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, LOCKON, 0.01);
+		FlxG.camera.follow(camFollow, LOCKON, 0.04 * (30 / (cast (Lib.current.getChildAt(0), Main)).getFPS()));
 		// FlxG.camera.setScrollBounds(0, FlxG.width, 0, FlxG.height);
 		FlxG.camera.zoom = defaultCamZoom;
 		FlxG.camera.focusOn(camFollow.getPosition());

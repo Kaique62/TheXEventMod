@@ -81,5 +81,10 @@ class Main extends Sprite
 		#if !mobile
 		addChild(new FPS(10, 3, 0xFFFFFF));
 		#end
+
+		public function getFPS():Float
+			{
+				return fpsCounter.currentFPS;
+			}
 	}
 }
