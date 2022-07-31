@@ -24,11 +24,13 @@ import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import Controls.KeyboardScheme;
 import Controls.Control;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
 class RPGMainMenuState extends RPGState
 {
+  public static var _vpad:FlxVirtualPad;
   override public function create()
   {
       //Absolutely horrendous hack but HaxeFlixel forced my hand
@@ -53,9 +55,9 @@ class RPGMainMenuState extends RPGState
       else
         controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
-    #if mobileC
-    addVirtualPad(FULL, A);
-    #end
+        _vpad = new FlxVirtualPad(FULL, A);
+        _vpad.alpha = 0.75;
+        this.add(_vpad);
   }
 
   var playerScroll:Float;

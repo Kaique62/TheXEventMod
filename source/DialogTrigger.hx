@@ -12,6 +12,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.math.FlxMath;
 import flixel.util.FlxTimer;
+import flixel.input.actions.FlxActionInput;
 
 using StringTools;
 
@@ -26,6 +27,11 @@ class DialogTrigger extends InteractableObject
     public var justEnteredCollision:Bool = false;
     public var alertOffset = 35;
 
+    private var controls(get, never):Controls;
+
+	inline function get_controls():Controls
+		return PlayerSettings.player1.controls;
+    
     public function new(x:Float=0, y:Float=0){
         super(x,y);
         SetInteractText();
